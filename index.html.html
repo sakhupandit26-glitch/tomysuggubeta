@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#160b12">
+<title>For Suggu — A Diwali surprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#160b12;--wine:#32131f;--gold:#e8c27c;--pale:#fff1d5;--muted:#cdbca9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--pale);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 5%,#6c342c 0%,transparent 48%),radial-gradient(ellipse at 0% 100%,#4b202e 0%,transparent 45%),linear-gradient(145deg,#10080e,#24101a 60%,#10080e)}
+body:after{content:"";position:fixed;inset:12px;border:1px solid #d6ad6540;pointer-events:none;z-index:8}
+#stars,#fireworks{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#stars{z-index:-1}#fireworks{z-index:5}
+.view{min-height:100svh;display:none;align-items:center;justify-content:center;padding:42px 20px;position:relative}
+.view.active{display:flex}
+.container{width:min(100%,850px);margin:auto;text-align:center}
+.kicker{font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:500}
+h1{font-size:clamp(48px,10vw,92px);line-height:1.02;margin:20px 0 14px;letter-spacing:-.04em}
+h2{font-size:clamp(35px,7vw,60px);line-height:1.1;margin:12px 0}
+.gold{background:linear-gradient(110deg,#fff3d0,#d9ae62 40%,#fff0c5 70%,#b77d3e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:510px;margin:0 auto;color:#dfcfbb;font-size:15px;line-height:1.9}
+.ornament{color:var(--gold);font-size:25px;letter-spacing:13px;margin:22px 0;filter:drop-shadow(0 0 12px #e6b35a70)}
+.btn{border:1px solid #e4c17d;border-radius:50px;padding:15px 26px;background:linear-gradient(120deg,#81502e,#bd8847,#80502d);color:#fff8e9;font:600 11px "DM Sans",sans-serif;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;box-shadow:0 12px 35px #0007,0 0 24px #e4b45b24;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px #0009,0 0 30px #e4b45b50}
+.btn.ghost{background:#ffffff09;border-color:#a98a61;color:#f5dfb9}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:27px}
+.divider{height:1px;width:110px;margin:26px auto;background:linear-gradient(90deg,transparent,#d8ae69,transparent)}
+.lamp{font-size:42px;display:inline-block;filter:drop-shadow(0 0 15px #ffb94f);animation:glow 2.2s ease-in-out infinite alternate}
+@keyframes glow{to{filter:drop-shadow(0 0 25px #ffb94f) brightness(1.2);transform:scale(1.04)}}
+.enter{animation:rise .8s both}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.card{width:min(100%,390px);margin:auto;padding:36px 28px;border:1px solid #d2ad6c66;border-radius:26px;background:linear-gradient(145deg,#ffffff12,#ffffff04);box-shadow:0 30px 90px #0008,inset 0 1px #ffffff20;backdrop-filter:blur(16px)}
+.lock{font-size:38px;margin-bottom:18px}
+input{width:100%;margin:22px 0 8px;padding:16px;border:1px solid #b9955c;border-radius:12px;background:#100910;color:#fff0d4;text-align:center;font-size:14px;outline:none}
+input:focus{box-shadow:0 0 0 3px #d9b36a2a}
+#error{min-height:20px;color:#ffaaa5;font-size:12px;margin:8px 0}
+.reveal-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(22px,5vw,55px);margin:35px auto 20px;text-align:left;max-width:760px}
+.photo-shell{position:relative;padding:10px;border-radius:230px 230px 18px 18px;background:linear-gradient(140deg,#fff1c5,#a96d32 35%,#f6dda0 65%,#86502b);box-shadow:0 0 0 1px #fff4d477,0 18px 55px #0009,0 0 45px #dca75544;max-width:300px;margin:auto}
+.photo-shell:before{content:"";position:absolute;inset:5px;border:1px solid #fff5d9aa;border-radius:225px 225px 14px 14px;pointer-events:none;z-index:1}
+.photo-shell img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:center 38%;border-radius:220px 220px 12px 12px}
+.photo-caption{font:italic 16px "Playfair Display",serif;color:#e9c98d;text-align:center;margin-top:16px}
+.letter{padding:8px 0}
+.letter .eyebrow{margin-bottom:18px}
+.letter p{font:clamp(19px,3vw,23px)/1.65 "Playfair Display",serif;color:#f2dfc3;margin:0}
+.signature{font:italic 28px "Playfair Display",serif;color:var(--gold);margin-top:22px}
+.small{font-size:11px;color:#bda98f;line-height:1.7;margin-top:22px}
+#musicStatus{font-size:11px;color:#d9c4a4;margin-top:15px}
+@media(max-width:650px){.reveal-grid{grid-template-columns:1fr;text-align:center;gap:30px}.photo-shell{max-width:260px}.letter{padding:0 10px}.view{padding:36px 22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas><canvas id="fireworks"></canvas>
+<audio id="loveSong" src="romantic-song.mp3" preload="auto" loop></audio>
+<audio id="firecrackerSound" src="skyshots.mp3" preload="auto" loop></audio>
+
+<section class="view active" id="welcome">
+ <main class="container enter">
+  <div class="kicker">A little festival magic · made just for you</div>
+  <div class="ornament">✧ ✦ ✧</div>
+  <div class="lamp">🪔</div>
+  <h1>Welcome,<br><span class="gold">Suggu Beta</span></h1>
+  <p class="lead">Aaj ki raat kuch khaas hai… roshni, khushiyan aur ek chhota sa surprise, sirf tumhare liye.</p>
+  <div class="divider"></div>
+  <button class="btn" onclick="showView('secret')">Open your surprise&nbsp; ♡</button>
+  <p class="small">With love, Arnav</p>
+ </main>
+</section>
+
+<section class="view" id="secret">
+ <main class="card enter">
+  <div class="lock">✧ 🔐 ✧</div>
+  <div class="kicker">Just between you and me</div>
+  <h2 class="gold">A little secret</h2>
+  <p class="lead">Enter our special password to unlock your Diwali surprise.</p>
+  <input id="pass" type="password" placeholder="Your secret password" autocomplete="off">
+  <div id="error"></div>
+  <button class="btn" onclick="unlock()">Unlock with love&nbsp; ♥</button>
+  <p class="small">Hint: our two names, forever together.</p>
+ </main>
+</section>
+
+<section class="view" id="surprise">
+ <main class="container enter">
+  <div class="kicker">Every sparkle tonight is for you</div>
+  <div class="ornament">✦ 🪔 ✦</div>
+  <h1 class="gold">Happy Diwali</h1>
+  <h2>Suggu beta Meri Jaan <span style="color:#e9b8b2">♥</span></h2>
+  <p class="lead">May your world always shine as beautifully as your smile.</p>
+  <div class="reveal-grid">
+   <div>
+    <div class="photo-shell"><img src="suggu.jpeg" alt="Anshika" onerror="this.alt='Please keep anshika.webp beside index.html'"></div>
+    <div class="photo-caption">My favourite person ♡</div>
+   </div>
+   <div class="letter">
+    <div class="eyebrow">A note from my heart</div>
+    <p>Meri Suggu,<br><br>Is Diwali meri bas ek hi dua hai — tumhari zindagi hamesha khushiyon, sukoon aur pyaar se roshan rahe. Tumhari smile mere liye har celebration se zyada special hai.<br><br>Har diya tumhare naam, har dua tumhari khushi ke naam. Hamesha aise hi muskurati rehna, meri jaan. ❤️</p>
+    <div class="signature">Forever yours,<br>Arnav ♡</div>
+   </div>
+  </div>
+  <div class="divider"></div>
+  <div class="actions">
+   <button class="btn" onclick="celebrate()">Make the sky sparkle ✨</button>
+   <button class="btn ghost" id="sound" onclick="toggleSound()">♫ Sound: On</button>
+  </div>
+  <div id="musicStatus">Your romantic song and skyshots will start after unlocking.</div>
+  <p class="small">This little corner of the internet was made only for you. Happy Diwali, my love.</p>
+ </main>
+</section>
+
+<script>
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active')}
+const SECRET='ArnavXAnshika2122';
+function unlock(){const p=document.getElementById('pass');if(p.value===SECRET){showView('surprise');startCelebrationAudio();celebrate();startSkyshots()}else{document.getElementById('error').textContent='Wrong password — try again, Suggu ❤️';p.value='';p.focus()}}
+document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+
+// Subtle star field
+const sc=document.getElementById('stars'),sx=sc.getContext('2d');let sw,sh,stars=[];
+function resize(){sw=sc.width=innerWidth;sh=sc.height=innerHeight;stars=Array.from({length:90},()=>({x:Math.random()*sw,y:Math.random()*sh,r:Math.random()*1.3+.2,a:Math.random()*.65+.15}))}
+addEventListener('resize',resize);resize();
+function drawStars(){sx.clearRect(0,0,sw,sh);stars.forEach(s=>{sx.globalAlpha=s.a*(.7+.3*Math.sin(Date.now()/1000+s.x));sx.fillStyle='#ffe5ae';sx.beginPath();sx.arc(s.x,s.y,s.r,0,Math.PI*2);sx.fill()});sx.globalAlpha=1;requestAnimationFrame(drawStars)}drawStars();
+
+// Fireworks canvas
+const fc=document.getElementById('fireworks'),fx=fc.getContext('2d');let fw,fh,particles=[];
+function resizeFx(){fw=fc.width=innerWidth;fh=fc.height=innerHeight}addEventListener('resize',resizeFx);resizeFx();
+function burst(x,y){const palette=['#ffe8ad','#f6c66f','#f49a84','#fff5df','#dca7d5'];for(let i=0;i<85;i++){let a=Math.random()*Math.PI*2,v=1+Math.random()*4.5;particles.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:70+Math.random()*20,r:.8+Math.random()*1.8,c:palette[Math.floor(Math.random()*palette.length)]})}}
+function animate(){fx.clearRect(0,0,fw,fh);for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.vx*=.99;p.life--;fx.globalAlpha=Math.max(0,p.life/90);fx.fillStyle=p.c;fx.beginPath();fx.arc(p.x,p.y,p.r,0,Math.PI*2);fx.fill();if(p.life<=0)particles.splice(i,1)}fx.globalAlpha=1;requestAnimationFrame(animate)}animate();
+let skyshotTimer=null;
+function celebrate(){for(let i=0;i<9;i++)setTimeout(()=>burst(fw*(.1+Math.random()*.8),fh*(.12+Math.random()*.48)),i*280);}
+function startSkyshots(){
+ if(skyshotTimer)return;
+ skyshotTimer=setInterval(()=>burst(fw*(.08+Math.random()*.84),fh*(.08+Math.random()*.58)),420);
+}
+function stopSkyshots(){clearInterval(skyshotTimer);skyshotTimer=null;}
+
+// Song + full-sky fireworks audio. Audio begins after the password interaction.
+let soundOn=true;
+async function startCelebrationAudio(){
+ if(!soundOn)return;
+ const song=document.getElementById('loveSong');
+ const crackers=document.getElementById('firecrackerSound');
+ try{song.volume=.72;await song.play();}catch(e){document.getElementById('musicStatus').textContent='Song file missing? Add romantic-song.mp3 beside index.html.'}
+ try{crackers.volume=.55;await crackers.play();}catch(e){document.getElementById('musicStatus').textContent='Add skyshots.mp3 beside index.html for firecracker sound.'}
+}
+function toggleSound(){
+ soundOn=!soundOn;
+ document.getElementById('sound').textContent=soundOn?'♫ Sound: On':'♫ Sound: Off';
+ document.getElementById('musicStatus').textContent=soundOn?'Romantic song + skyshots enabled.':'Sound is muted.';
+ const song=document.getElementById('loveSong'),crackers=document.getElementById('firecrackerSound');
+ if(soundOn){startCelebrationAudio();startSkyshots();}
+ else{song.pause();crackers.pause();stopSkyshots();}
+}
+</script>
+<!-- Put your chosen romantic-song.mp3 and skyshots.mp3 files in this same folder. -->
+</body>
+</html>
